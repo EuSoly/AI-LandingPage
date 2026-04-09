@@ -1,0 +1,48 @@
+/* Animações Customizadas */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #F05A28 0%, #FF9B73 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Markdown renderizado básico da resposta da IA */
+.ai-response-formatted strong {
+    color: #F05A28;
+    font-weight: 700;
+}
+.ai-response-formatted br {
+    content: "";
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ====================================================
+   NOVAS REGRAS PARA O FUNDO INTERATIVO (PARTICLES.JS) 
+   ==================================================== */
+/* A classe pointer-events-none no wrapper principal do conteúdo resolve o bug de interação */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }

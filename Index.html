@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StratAI by Realize Hub | Alinhamento Estratégico com IA</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        realize: {
+                            50: '#fff8f4',
+                            100: '#ffece3',
+                            500: '#F05A28', 
+                            600: '#D94D1F', 
+                            700: '#B33C15',
+                            800: '#4A3F35', 
+                            900: '#2D2621', 
+                            950: '#1A1613', 
+                            accent: '#FF7A4D', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="ph-fill ph-graph text-realize-500 text-3xl"></i>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-2xl tracking-tight text-slate-900 leading-none">Strat<span class="text-realize-500">AI</span></span>
+                        <span class="text-[0.65rem] font-semibold text-slate-500 tracking-widest uppercase mt-1">by Realize Hub</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#como-funciona" class="text-slate-600 hover:text-realize-500 font-medium transition-colors">Como Funciona</a>
+                    <a href="#test-drive" class="text-slate-600 hover:text-realize-500 font-medium transition-colors">Test-Drive IA</a>
+                    <a href="#planos" class="text-slate-600 hover:text-realize-500 font-medium transition-colors">Planos</a>
+                    <div class="flex items-center space-x-4 ml-4">
+                        
+                        <a href="#lead-capture" class="bg-realize-500 hover:bg-realize-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors shadow-lg shadow-realize-500/30">
+                            Análise Gratuita
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-realize-500 focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 shadow-xl absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#como-funciona" class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50">Como Funciona</a>
+                <a href="#test-drive" class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50">Test-Drive IA</a>
+                <a href="#planos" class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50">Planos</a>
+                <a href="#lead-capture" class="block px-3 py-2 text-realize-500 font-bold hover:bg-slate-50">Análise Gratuita</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-realize-900 text-white overflow-hidden">
+        
+        <div id="particles-hero" class="absolute inset-0 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
+             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center pointer-events-auto">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-realize-500/10 border border-realize-500/20 text-realize-100 text-sm font-medium mb-6">
+                        <i class="ph-fill ph-sparkle text-realize-accent"></i> Solução Inteligente por Realize Hub
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                        Alinhe 100% dos seus projetos à <span class="gradient-text">Estratégia Corporativa</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+                        Gerenciando 160+ projetos? Chega de análises manuais. Nossa IA lê seu planejamento estratégico, avalia seus projetos e ranqueia automaticamente onde você deve investir seus recursos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#test-drive" class="bg-realize-500 hover:bg-realize-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_0_40px_-10px_rgba(240,90,40,0.6)] flex items-center justify-center gap-2">
+                            Testar IA Agora <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                        <a href="#como-funciona" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
+                            Entenda o Método <i class="ph ph-play-circle text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative lg:ml-auto animate-float hidden md:block">
+                    <div class="glass-card rounded-2xl p-4 shadow-2xl relative z-10 border-slate-700/50">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-sm text-slate-300 font-medium">Dashboard de Priorização</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between border border-green-500/30">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-green-500/20 p-2 rounded-lg text-green-400 font-bold text-lg">20%</div>
+                                    <div>
+                                        <div class="font-medium text-white">Data Lake e IA Analítica</div>
+                                        <div class="text-xs text-slate-400">Alto Alinhamento Estratégico</div>
+                                    </div>
+                                </div>
+                                <i class="ph-fill ph-check-circle text-green-400 text-xl"></i>
+                            </div>
+                            
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between border border-yellow-500/30">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-yellow-500/20 p-2 rounded-lg text-yellow-400 font-bold text-lg">10%</div>
+                                    <div>
+                                        <div class="font-medium text-white">Criação de Agentes personalizados</div>
+                                        <div class="text-xs text-slate-400">Alinhamento Moderado</div>
+                                    </div>
+                                </div>
+                                <i class="ph-fill ph-warning-circle text-yellow-400 text-xl"></i>
+                            </div>
+
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between border border-red-500/30">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-red-500/20 p-2 rounded-lg text-red-400 font-bold text-lg">0%</div>
+                                    <div>
+                                        <div class="font-medium text-white">App para Desktop e Mobile</div>
+                                        <div class="text-xs text-slate-400">Baixo Alinhamento - Revisar</div>
+                                    </div>
+                                </div>
+                                <i class="ph-fill ph-x-circle text-red-400 text-xl"></i>
+                            </div>
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">A dor de gerenciar portfólios gigantes</h2>
+                <p class="text-lg text-slate-600">Se você coordena múltiplos gerentes e centenas de projetos, a análise manual de alinhamento é impossível, cara e extremamente subjetiva.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-6">
+                        <i class="ph ph-hourglass-high text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Lentidão Manual</h3>
+                    <p class="text-slate-600">Avaliar projeto por projeto leva semanas. Nossa IA processa planilhas com dezenas de projetos em minutos.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-realize-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg">CORE</div>
+                    <div class="w-14 h-14 bg-realize-100 rounded-xl flex items-center justify-center text-realize-600 mb-6">
+                        <i class="ph ph-brain text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Escoragem Inteligente</h3>
+                    <p class="text-slate-600">Esqueça achismos. O algoritmo lê seu Planejamento Estratégico e aplica regras claras de alinhamento com base em dados.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6">
+                        <i class="ph ph-chart-line-up text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Ranking Acionável</h3>
+                    <p class="text-slate-600">Receba um dashboard interativo priorizando projetos, com justificativas textuais geradas pela IA para cada um.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-realize-500 font-semibold tracking-wider uppercase text-sm">O Processo</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Como a StratAI funciona</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">Em apenas 3 passos, transforme dados brutos em decisões executivas claras.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10 -translate-y-1/2"></div>
+
+                <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 text-center">
+                    <div class="w-16 h-16 bg-realize-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-realize-500/30">1</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Faça Upload da Estratégia</h3>
+                    <p class="text-slate-600 text-sm">Envie o documento de Planejamento Estratégico da sua empresa. A IA vai absorver seus OKRs, Metas e Visão.</p>
+                </div>
+
+                <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 text-center">
+                    <div class="w-16 h-16 bg-realize-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-realize-500/30">2</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Importe os Projetos</h3>
+                    <p class="text-slate-600 text-sm">Importe seu portfólio via CSV/Excel. Suportamos até centenas de projetos ativos simultaneamente.</p>
+                </div>
+
+                <div class="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 text-center border-b-4 border-b-realize-500">
+                    <div class="w-16 h-16 bg-realize-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-realize-500/30">3</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Receba o Ranking</h3>
+                    <p class="text-slate-600 text-sm">Acesse o dashboard com os projetos escorados e feedback textual detalhado do porquê focar ou pausar cada um.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="test-drive" class="py-24 bg-realize-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-realize-accent font-bold tracking-wider uppercase text-sm flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-lightning"></i> Demonstração Interativa
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Teste a IA Agora Mesmo</h2>
+                <p class="text-slate-600 text-lg">Descreva brevemente um projeto da sua empresa abaixo. Nossa IA (Powered by Gemini) fará uma análise instantânea simulando nosso critério de "Inovação e Transformação Digital".</p>
+            </div>
+            
+            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-slate-200">
+                <label for="project-input" class="block text-sm font-semibold text-slate-700 mb-2">Descreva o objetivo do projeto:</label>
+                <textarea id="project-input" rows="4" class="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-realize-500 focus:border-realize-500 outline-none transition-all text-slate-900 resize-none mb-6 text-base" placeholder="Ex: Migração de todos os servidores locais para infraestrutura em Nuvem visando reduzir custos operacionais em 30% e aumentar a flexibilidade dos times remotos..."></textarea>
+                
+                <button id="btn-analyze-ai" class="w-full bg-realize-900 hover:bg-realize-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 text-lg">
+                    <i class="ph-bold ph-magic-wand text-xl text-realize-accent"></i> Analisar Alinhamento do Projeto
+                </button>
+                
+                <div id="ai-loading" class="hidden mt-8 flex flex-col items-center justify-center p-8 bg-slate-50 rounded-xl border border-slate-100">
+                    <i class="ph ph-spinner animate-spin text-5xl text-realize-500 mb-4"></i>
+                    <p class="text-slate-700 font-medium">A IA do Realize Hub está avaliando seu projeto...</p>
+                    <p class="text-sm text-slate-500 mt-1">Conectando ao modelo Gemini 2.5 Flash</p>
+                </div>
+                
+                <div id="ai-result-container" class="hidden mt-8 p-6 md:p-8 bg-gradient-to-br from-realize-50 to-white rounded-xl border border-realize-200 shadow-inner">
+                    <div class="flex items-center gap-3 mb-6 border-b border-realize-100 pb-4">
+                        <div class="bg-realize-500 p-2.5 rounded-lg text-white">
+                            <i class="ph-fill ph-robot text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900">Diagnóstico Estratégico (Simulação)</h3>
+                            <p class="text-xs font-semibold text-realize-600 uppercase tracking-wide">Gerado por IA</p>
+                        </div>
+                    </div>
+                    <div id="ai-result-content" class="ai-response-formatted text-slate-700 leading-relaxed text-[15px]">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lead-capture" class="py-20 bg-realize-900 relative overflow-hidden">
+        
+        <div id="particles-contact" class="absolute inset-0 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row pointer-events-auto">
+                
+                <div class="lg:w-5/12 bg-slate-50 p-10 lg:p-12 flex flex-col justify-center border-r border-slate-100">
+                    <div class="inline-block bg-realize-accent/10 text-realize-accent font-bold px-3 py-1 rounded-full text-sm mb-6 w-max border border-realize-accent/20">
+                        Oferta Limitada Realize Hub
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Gere sua Primeira Análise Gratuitamente</h2>
+                    <p class="text-slate-600 mb-8">
+                        Mostre à sua diretoria o poder da inteligência artificial. Processe gratuitamente <strong>até 20 projetos</strong> contra a estratégia real da sua empresa.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700">
+                            <i class="ph-fill ph-check-circle text-realize-500 text-xl"></i> Relatório PDF executivo
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700">
+                            <i class="ph-fill ph-check-circle text-realize-500 text-xl"></i> Feedback individual por projeto
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700">
+                            <i class="ph-fill ph-check-circle text-realize-500 text-xl"></i> Chamada opcional com consultor
+                        </li>
+                    </ul>
+                    
+                    <p class="text-xs text-slate-400 mt-auto">
+                        <i class="ph-fill ph-shield-check"></i> Garantimos 100% de confidencialidade dos dados do seu portfólio através do nosso DPA e conformidade com a LGPD.
+                    </p>
+                </div>
+
+                <div class="lg:w-7/12 p-10 lg:p-12 bg-white">
+                    <form id="lead-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nome" class="block text-sm font-medium text-slate-700 mb-1">Nome Completo</label>
+                                <input type="text" id="nome" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-realize-500 focus:border-realize-500 outline-none transition-all text-slate-900" placeholder="João Silva">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">E-mail Corporativo</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-realize-500 focus:border-realize-500 outline-none transition-all text-slate-900" placeholder="joao@empresa.com.br">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="empresa" class="block text-sm font-medium text-slate-700 mb-1">Nome da Empresa</label>
+                                <input type="text" id="empresa" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-realize-500 focus:border-realize-500 outline-none transition-all text-slate-900" placeholder="Sua Empresa S.A.">
+                            </div>
+                            <div>
+                                <label for="volume" class="block text-sm font-medium text-slate-700 mb-1">Volume Atual de Projetos</label>
+                                <select id="volume" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-realize-500 focus:border-realize-500 outline-none transition-all text-slate-900 bg-white">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="1-50">1 a 50 projetos</option>
+                                    <option value="51-150">51 a 150 projetos</option>
+                                    <option value="150+">Mais de 150 projetos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" id="submit-btn" class="w-full bg-realize-500 hover:bg-realize-600 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-realize-500/30 flex items-center justify-center gap-2 text-lg">
+                                <span>Primeira Analise!</span>
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div id="success-message" class="hidden bg-green-50 text-green-800 p-4 rounded-lg border border-green-200 mt-4 flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-2xl text-green-500"></i>
+                            <div>
+                                <p class="font-bold">Conta criada com sucesso!</p>
+                                <p class="text-sm">Redirecionando para o painel de upload da StratAI...</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Planos escaláveis para sua operação</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">Comece gratuitamente, escale conforme o tamanho do seu portfólio.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+                
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Freemium</h3>
+                    <p class="text-slate-500 text-sm mb-6">Para validação inicial</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-slate-900">R$ 0</span>
+                        <span class="text-slate-500">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> 1 análise estratégica</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Até 20 projetos no batch</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Dashboard básico</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-400 line-through"><i class="ph-bold ph-x text-slate-300"></i> Exportação em PDF/Excel</li>
+                    </ul>
+                    <a href="#lead-capture" class="block w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 text-center font-semibold rounded-lg transition-colors">
+                        Começar Grátis
+                    </a>
+                </div>
+
+                <div class="bg-realize-950 p-8 rounded-2xl border border-realize-800 shadow-xl relative transform md:-translate-y-4">
+                    <div class="absolute top-0 inset-x-0 flex justify-center -translate-y-1/2">
+                        <span class="bg-realize-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Mais Escolhido</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
+                    <p class="text-white text-sm mb-6">Para PMOs e Coordenadores</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-white">R$ 0</span>
+                        <span class="text-white">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-realize-100"><i class="ph-bold ph-check text-realize-400"></i> Análises ilimitadas</li>
+                        <li class="flex items-center gap-2 text-sm text-realize-100"><i class="ph-bold ph-check text-realize-400"></i> Até 200 projetos por análise</li>
+                        <li class="flex items-center gap-2 text-sm text-realize-100"><i class="ph-bold ph-check text-realize-400"></i> Feedback detalhado da IA</li>
+                        <li class="flex items-center gap-2 text-sm text-realize-100"><i class="ph-bold ph-check text-realize-400"></i> Exportação PDF/Excel</li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 px-4 bg-realize-500 hover:bg-realize-600 text-white text-center font-semibold rounded-lg transition-colors shadow-lg shadow-realize-500/30">
+                        Assinar Plano Pro
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Enterprise</h3>
+                    <p class="text-slate-500 text-sm mb-6">Corporações e Grandes Volumes</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-slate-900">R$ 0</span>
+                        <span class="text-slate-500">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Tudo do plano Pro</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Projetos ilimitados</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Acesso à API</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><i class="ph-bold ph-check text-green-500"></i> Integração CRM Customizada</li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 px-4 bg-white border border-realize-200 hover:border-realize-500 text-realize-600 text-center font-semibold rounded-lg transition-colors">
+                        Falar com Vendas
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex flex-col gap-1 mb-4">
+                    <span class="font-bold text-xl text-white flex items-center gap-2"><i class="ph-fill ph-graph text-realize-500"></i> StratAI</span>
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest">by Realize Hub</span>
+                </div>
+                <p class="text-sm mb-4">Software baseado em Inteligência Artificial para análise e alinhamento de portfólio estratégico.</p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-4">Produto</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#como-funciona" class="hover:text-realize-400 transition-colors">Como Funciona</a></li>
+                    <li><a href="#test-drive" class="hover:text-realize-400 transition-colors">Test-Drive IA</a></li>
+                    <li><a href="#planos" class="hover:text-realize-400 transition-colors">Preços</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4">Realize Hub</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://realizehub.com" target="_blank" class="hover:text-realize-400 transition-colors">Institucional</a></li>
+                    <li><a href="#" class="hover:text-realize-400 transition-colors">Consultoria de Inovação</a></li>
+                    <li><a href="#" class="hover:text-realize-400 transition-colors">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-realize-400 transition-colors">Termos de Uso</a></li>
+                    <li><a href="#" class="hover:text-realize-400 transition-colors">Política de Privacidade</a></li>
+                    <li><a href="#" class="hover:text-realize-400 transition-colors">Conformidade LGPD</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
+            &copy; 2026 Realize Hub. Todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+</html>
