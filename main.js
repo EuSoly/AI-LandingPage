@@ -1,24 +1,30 @@
+// main.js - Versão Consolidada e Blindada
+
 document.addEventListener('DOMContentLoaded', () => {
             
     // --- 1. Mobile Menu Toggle ---
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
 
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
+    if (btn && menu) {
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
 
     // --- 2. Navbar Scroll Effect ---
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            navbar.classList.add('shadow-md');
-            navbar.classList.replace('bg-white/90', 'bg-white/98');
-        } else {
-            navbar.classList.remove('shadow-md');
-            navbar.classList.replace('bg-white/98', 'bg-white/90');
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/90', 'bg-white/98');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/98', 'bg-white/90');
+            }
+        });
+    }
 
     // --- 3. Integração Gemini API (Test-Drive) ---
     const btnAnalyzeAi = document.getElementById('btn-analyze-ai');
@@ -78,64 +84,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    btnAnalyzeAi.addEventListener('click', async () => {
-        const projectText = projectInput.value.trim();
-        
-        if (!projectText) {
-            alert("Por favor, descreva um projeto antes de analisar.");
-            projectInput.focus();
-            return;
-        }
-
-        btnAnalyzeAi.classList.add('hidden');
-        resultContainer.classList.add('hidden');
-        loadingUi.classList.remove('hidden');
-
-        try {
-            const aiResponse = await fetchGeminiWithRetry(projectText);
+    if (btnAnalyzeAi && projectInput) {
+        btnAnalyzeAi.addEventListener('click', async () => {
+            const projectText = projectInput.value.trim();
             
-            const formattedResponse = aiResponse
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br>');
+            if (!projectText) {
+                alert("Por favor, descreva um projeto antes de analisar.");
+                projectInput.focus();
+                return;
+            }
+
+            btnAnalyzeAi.classList.add('hidden');
+            resultContainer.classList.add('hidden');
+            loadingUi.classList.remove('hidden');
+
+            try {
+                const aiResponse = await fetchGeminiWithRetry(projectText);
                 
-            resultContent.innerHTML = formattedResponse;
-            
-            loadingUi.classList.add('hidden');
-            resultContainer.classList.remove('hidden');
-            
-        } catch (error) {
-            loadingUi.classList.add('hidden');
-            resultContainer.classList.remove('hidden');
-            resultContent.innerHTML = `<span class="text-red-500 font-bold">Ocorreu um erro:</span><br>${error.message}`;
-        } finally {
-            btnAnalyzeAi.innerHTML = '<i class="ph-bold ph-arrows-clockwise text-xl text-realize-accent"></i> Analisar Outro Projeto';
-            btnAnalyzeAi.classList.remove('hidden');
-        }
-    });
+                const formattedResponse = aiResponse
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n/g, '<br>');
+                    
+                resultContent.innerHTML = formattedResponse;
+                
+                loadingUi.classList.add('hidden');
+                resultContainer.classList.remove('hidden');
+                
+            } catch (error) {
+                loadingUi.classList.add('hidden');
+                resultContainer.classList.remove('hidden');
+                resultContent.innerHTML = `<span class="text-red-500 font-bold">Ocorreu um erro:</span><br>${error.message}`;
+            } finally {
+                btnAnalyzeAi.innerHTML = '<i class="ph-bold ph-arrows-clockwise text-xl text-realize-accent"></i> Analisar Outro Projeto';
+                btnAnalyzeAi.classList.remove('hidden');
+            }
+        });
+    }
 
     // --- 4. Form Submission Handling (Lead Capture) ---
     const form = document.getElementById('lead-form');
     const submitBtn = document.getElementById('submit-btn');
     const successMsg = document.getElementById('success-message');
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-        
-        submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Processando Conta...';
-        submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
-        submitBtn.disabled = true;
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Processando Conta...';
+            submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+            submitBtn.disabled = true;
 
-        setTimeout(() => {
-            submitBtn.classList.add('hidden');
-            successMsg.classList.remove('hidden');
-        }, 1500);
-    });
+            setTimeout(() => {
+                submitBtn.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+            }, 1500);
+        });
+    }
 
     // --- 5. Smooth Scroll ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            menu.classList.add('hidden'); 
+            if(menu) menu.classList.add('hidden'); 
             
             const targetId = this.getAttribute('href');
             if(targetId === '#') return;
@@ -149,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 6. PARTICLES.JS (EFEITO TEIA DE ARANHA) ---
+    // --- 6. PARTICLES.JS (EFEITO TEIA DE ARANHA - CORRIGIDO) ---
     const particlesConfig = {
         "particles": {
             "number": { 
@@ -184,9 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         "interactivity": {
-            // AQUI ESTÁ A CHAVE: Usar "window" garante que as teias sigam o mouse
-            // mesmo quando o mouse estiver em cima dos textos!
-            "detect_on": "window",
+            // CORREÇÃO MESTRE: "canvas" garante que a teia acompanhe o mouse perfeitamente junto com o scroll
+            "detect_on": "canvas",
             "events": {
                 "onhover": { "enable": true, "mode": "grab" }, 
                 "onclick": { "enable": true, "mode": "push" },
@@ -200,11 +209,32 @@ document.addEventListener('DOMContentLoaded', () => {
         "retina_detect": true
     };
 
-    if (document.getElementById('particles-hero')) {
-        particlesJS('particles-hero', particlesConfig);
+    // Só inicializa se os elementos existirem na tela
+    if (typeof particlesJS !== 'undefined') {
+        if (document.getElementById('particles-hero')) {
+            particlesJS('particles-hero', particlesConfig);
+        }
+
+        if (document.getElementById('particles-contact')) {
+            particlesJS('particles-contact', particlesConfig);
+        }
     }
 
-    if (document.getElementById('particles-contact')) {
-        particlesJS('particles-contact', particlesConfig);
-    }
+    // --- 7. EFEITO SPOTLIGHT EXTRAVAGANTE (HOLOFOTE NO MOUSE) ---
+    // Seleciona as caixas internas onde a luz vai brilhar
+    const spotlightInners = document.querySelectorAll('.spotlight-inner');
+
+    spotlightInners.forEach(inner => {
+        // Usamos addEventListener que é mais seguro que onmousemove
+        inner.addEventListener('mousemove', (e) => {
+            const rect = inner.getBoundingClientRect();
+            // Calcula a posição exata do mouse dentro da caixa
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Envia as coordenadas para o CSS fazer a mágica do gradiente radial
+            inner.style.setProperty('--mouse-x', `${x}px`);
+            inner.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
 });

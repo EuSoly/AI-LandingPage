@@ -1,13 +1,10 @@
-/* Animações Customizadas */
+/* 1. ANIMAÇÕES GERAIS E CORES */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
 }
-
-.animate-float {
-    animation: float 4s ease-in-out infinite;
-}
+.animate-float { animation: float 4s ease-in-out infinite; }
 
 .glass-card {
     background: rgba(255, 255, 255, 0.05);
@@ -21,28 +18,104 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Markdown renderizado básico da resposta da IA */
-.ai-response-formatted strong {
-    color: #F05A28;
-    font-weight: 700;
+/* 2. FORMATAÇÃO DA RESPOSTA DA IA */
+.ai-response-formatted strong { color: #F05A28; font-weight: 700; }
+.ai-response-formatted br { content: ""; display: block; margin-bottom: 0.75rem; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 3. EFEITO HOLOFOTE NEON (Test-Drive e Plano Pro) */
+.spotlight-card {
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    pointer-events: auto !important; /* Garante interação do mouse */
 }
-.ai-response-formatted br {
+.spotlight-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: auto !important; /* Garante interação do mouse */
+}
+.spotlight-card:hover {
+    border-color: rgba(240, 90, 40, 1) !important;
+    box-shadow: 0 0 50px -10px rgba(240, 90, 40, 0.6) !important;
+}
+.spotlight-inner::before {
     content: "";
-    display: block;
-    margin-bottom: 0.75rem;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    z-index: 1;
+    pointer-events: none !important; /* IMPEDE que a luz bloqueie o clique */
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(240, 90, 40, 0.3),
+        rgba(240, 90, 40, 0.1) 30%,
+        transparent 60%
+    );
+}
+.spotlight-card:hover .spotlight-inner::before { opacity: 1; }
+.spotlight-inner > * { position: relative; z-index: 2; }
+
+/* 4. EFEITO ELÁSTICO (Como Funciona) */
+.step-card { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.step-card:hover {
+    transform: translateY(-15px);
+    border-color: rgba(240, 90, 40, 0.3) !important;
+    box-shadow: 0 20px 40px -10px rgba(240, 90, 40, 0.2);
+}
+.step-badge { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.step-card:hover .step-badge {
+    transform: scale(1.15) rotate(5deg);
+    background-color: #D94D1F;
+    box-shadow: 0 0 25px rgba(240, 90, 40, 0.5);
+}
+.process-container:hover .process-line {
+    background-color: rgba(240, 90, 40, 0.3);
+    box-shadow: 0 0 10px rgba(240, 90, 40, 0.2);
+}
+.process-line { transition: all 0.5s ease; }
+
+/* 5. AURA MAGNÉTICA (Captura de Leads) */
+.lead-card-wrapper {
+    position: relative;
+    pointer-events: auto !important; 
+}
+.lead-card-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    background: linear-gradient(90deg, #F05A28, #FF9B73, #D94D1F, #F05A28);
+    background-size: 300% 300%;
+    border-radius: 1.8rem;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.4;
+    animation: aura-move 6s linear infinite;
+    transition: opacity 0.4s ease;
+    pointer-events: none !important; /* IMPEDE que a aura bloqueie o clique */
+}
+.lead-card-wrapper:hover::before { opacity: 0.75; }
+@keyframes aura-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.lead-input { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.lead-input:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(240, 90, 40, 0.15);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
+/* 6. BLINDAGEM DO MOUSE (PARTICLES E CLIQUES) */
+.pointer-events-none { pointer-events: none !important; }
+.pointer-events-auto, a, button, input, select, textarea, form, .glass-card {
+    pointer-events: auto !important;
 }
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* ====================================================
-   NOVAS REGRAS PARA O FUNDO INTERATIVO (PARTICLES.JS) 
-   ==================================================== */
-/* A classe pointer-events-none no wrapper principal do conteúdo resolve o bug de interação */
-.pointer-events-none { pointer-events: none; }
-.pointer-events-auto { pointer-events: auto; }
+.particles-js-canvas-el { pointer-events: auto !important; } /* Libera a teia para o mouse */
