@@ -13,13 +13,14 @@
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #F05A28 0%, #FF9B73 100%);
+    /* Atualizado para degradê Índigo */
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* 2. FORMATAÇÃO DA RESPOSTA DA IA */
-.ai-response-formatted strong { color: #F05A28; font-weight: 700; }
+.ai-response-formatted strong { color: #4f46e5; font-weight: 700; } /* Atualizado para Índigo 600 */
 .ai-response-formatted br { content: ""; display: block; margin-bottom: 0.75rem; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -41,8 +42,8 @@
     pointer-events: auto !important; /* Garante interação do mouse */
 }
 .spotlight-card:hover {
-    border-color: rgba(240, 90, 40, 1) !important;
-    box-shadow: 0 0 50px -10px rgba(240, 90, 40, 0.6) !important;
+    border-color: #6366f1 !important; /* Índigo 500 */
+    box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.6) !important;
 }
 .spotlight-inner::before {
     content: "";
@@ -55,8 +56,8 @@
     pointer-events: none !important; /* IMPEDE que a luz bloqueie o clique */
     background: radial-gradient(
         800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(240, 90, 40, 0.3),
-        rgba(240, 90, 40, 0.1) 30%,
+        rgba(99, 102, 241, 0.3), /* Índigo 500 com opacidade */
+        rgba(99, 102, 241, 0.1) 30%,
         transparent 60%
     );
 }
@@ -67,18 +68,18 @@
 .step-card { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .step-card:hover {
     transform: translateY(-15px);
-    border-color: rgba(240, 90, 40, 0.3) !important;
-    box-shadow: 0 20px 40px -10px rgba(240, 90, 40, 0.2);
+    border-color: rgba(99, 102, 241, 0.3) !important;
+    box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
 }
 .step-badge { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .step-card:hover .step-badge {
     transform: scale(1.15) rotate(5deg);
-    background-color: #D94D1F;
-    box-shadow: 0 0 25px rgba(240, 90, 40, 0.5);
+    background-color: #4f46e5; /* Índigo 600 */
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
 }
 .process-container:hover .process-line {
-    background-color: rgba(240, 90, 40, 0.3);
-    box-shadow: 0 0 10px rgba(240, 90, 40, 0.2);
+    background-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
 }
 .process-line { transition: all 0.5s ease; }
 
@@ -91,7 +92,8 @@
     content: "";
     position: absolute;
     inset: -6px;
-    background: linear-gradient(90deg, #F05A28, #FF9B73, #D94D1F, #F05A28);
+    /* Atualizado para a nova paleta Índigo */
+    background: linear-gradient(90deg, #6366f1, #818cf8, #4f46e5, #6366f1);
     background-size: 300% 300%;
     border-radius: 1.8rem;
     z-index: -1;
@@ -110,7 +112,7 @@
 .lead-input { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
 .lead-input:focus {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px -5px rgba(240, 90, 40, 0.15);
+    box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.15); /* Índigo 500 na sombra */
 }
 
 /* 6. BLINDAGEM DO MOUSE (PARTICLES E CLIQUES) */

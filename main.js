@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "value": 80, 
                 "density": { "enable": true, "value_area": 800 } 
             },
-            "color": { "value": "#ffc800" }, 
+            "color": { "value": "#ffffff" }, 
             "shape": { "type": "circle" },
             "opacity": { 
                 "value": 0.5, 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "line_linked": { 
                 "enable": true, 
                 "distance": 150, 
-                "color": "#fe7905", 
+                "color": "#beb1e4", 
                 "opacity": 0.6, 
                 "width": 2
             }, 
